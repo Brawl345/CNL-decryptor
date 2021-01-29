@@ -16,7 +16,8 @@
     ]
   },
   "permissions": [
-    "<all_urls>",
+    "http://*/*",
+    "https://*/*",
     "webRequest",
     "webRequestBlocking"
   ],
