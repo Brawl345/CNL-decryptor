@@ -3,7 +3,7 @@
   "name": "CNL Decryptor",
   "description": "Decrypts jDownloader Click'N'Load links",
   "author": "Andreas Bielawski",
-  "version": "1.0",
+  "version": "1.0.1",
   "icons": {
     "16": "icons/16.png",
     "48": "icons/48.png",
