@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CNL Decryptor</title>
+
+  <style>
+      #links {
+          width: 99%;
+          resize: none;
+      }
+
+      #password-div {
+          display: none;
+      }
+  </style>
+</head>
+<body>
+<textarea id="links" placeholder="No links found!" readonly rows="23"></textarea>
+
+<div id="password-div">
+  <label>
+    <span>Password: </span>
+    <input id="password" placeholder="No password" readonly size="50" type="text">
+  </label>
+  <span>NOTE: Password won't be copied!</span>
+</div>
+
+<p>
+  <button id="copy-and-close" type="button">Copy to clipboard &amp; close window</button>
+  <button id="copy" type="button">Copy to clipboard</button>
+  <button id="close" type="button">Close window</button>
+</p>
+
+<script src="links-popup.js"></script>
+</body>
+</html>

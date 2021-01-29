@@ -1,0 +1,5 @@
+.idea/
+node_modules/
+web-ext-artifacts/
+*.iml
+*.pem

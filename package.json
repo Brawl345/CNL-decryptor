@@ -1,0 +1,27 @@
+{
+  "name": "cnl-decryptor",
+  "version": "1.0.0",
+  "description": "Click-and-load decryptor WebExtension",
+  "repository": {
+    "url": "https://github.com/Brawl345/CNL-decryptor"
+  },
+  "scripts": {
+    "build": "web-ext build --overwrite-dest",
+    "start:firefox": "web-ext run --start-url=about:debugging#/runtime/this-firefox",
+    "lint": "web-ext lint"
+  },
+  "keywords": [
+    "browser",
+    "webextension"
+  ],
+  "author": "Brawl345",
+  "license": "Unlicense",
+  "devDependencies": {
+    "@types/chrome": "^0.0.129",
+    "eslint": "^7.18.0",
+    "web-ext": "^5.5.0"
+  },
+  "webExt": {
+    "sourceDir": "./source/"
+  }
+}

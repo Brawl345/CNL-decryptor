@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "CNL Decryptor",
+  "description": "Decrypts jDownloader Click'N'Load links",
+  "author": "Andreas Bielawski",
+  "version": "1.0",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js",
+      "lib/crypto-js.js"
+    ]
+  },
+  "permissions": [
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "web_accessible_resources": [
+    "/web_accessible_resources/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cnl-decrypt@brawl345.github.com",
+      "strict_min_version": "80.0"
+    }
+  }
+}
