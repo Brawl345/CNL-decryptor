@@ -30,7 +30,11 @@ const cnlDecrypt = () => {
       links = urls[0];
     } else { // Standard CNL2 with Crypto
       const key = CryptoJS.enc.Hex.parse(jk[0].match(keyFuncRegex)[1]);
-      const decrypted = CryptoJS.AES.decrypt(crypted[0], key, { iv: key });
+      const decrypted = CryptoJS.AES.decrypt(crypted[0], key, {
+        mode: CryptoJS.mode.CBC,
+        iv: key,
+        padding: CryptoJS.pad.NoPadding
+      });
       links = CryptoJS.enc.Utf8.stringify(decrypted);
     }
 
