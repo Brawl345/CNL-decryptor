@@ -17,8 +17,8 @@
   "author": "Brawl345",
   "license": "Unlicense",
   "devDependencies": {
-    "@types/chrome": "^0.0.129",
-    "eslint": "^7.18.0",
+    "@types/chrome": "^0.0.130",
+    "eslint": "^7.20.0",
     "web-ext": "^5.5.0"
   },
   "webExt": {

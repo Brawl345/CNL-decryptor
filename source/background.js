@@ -1,3 +1,7 @@
+'use strict';
+
+/* global CryptoJS */
+
 const cnlDecrypt = () => {
 
   // eval() is blocked everywhere so we hope that it isn't encrypted weirdly
@@ -15,7 +19,6 @@ const cnlDecrypt = () => {
   };
 
   const addCryptedListener = ({ url, requestBody }) => {
-    /* eslint-disable no-undef */
     // Check port, because it's not allowed in RequestListener
     if (!url.startsWith('http://127.0.0.1:9666/')) {
       return {};

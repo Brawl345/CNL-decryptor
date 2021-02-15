@@ -1,3 +1,5 @@
+'use strict';
+
 const linksPopup = () => {
   const textarea = document.getElementById('links');
   const passwordDiv = document.getElementById('password-div');
