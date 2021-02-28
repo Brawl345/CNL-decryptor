@@ -1,6 +1,10 @@
 Changelog
 =========
 
+## v1.1.0
+
+* Added German translation
+
 ## 1.0.2
 
 * Fix link-trimming

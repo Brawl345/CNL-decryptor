@@ -53,7 +53,7 @@ const cnlDecrypt = () => {
       left: 700,
       top: 0,
       width: 700,
-      height: 500,
+      height: 515,
       type: 'popup'
     });
 

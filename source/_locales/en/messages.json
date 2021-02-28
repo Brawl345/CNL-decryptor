@@ -1,0 +1,34 @@
+{
+  "extensionName": {
+    "message": "CNL Decryptor",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Decrypts jDownloader Click'N'Load links",
+    "description": "Description of the extension."
+  },
+  "popup_noLinks": {
+    "message": "No links found!"
+  },
+  "popup_passwordLabel": {
+    "message": "Password: "
+  },
+  "popup_noPassword": {
+    "message": "No password"
+  },
+  "popup_passwordNoCopyMsg": {
+    "message": "NOTE: Password won't be copied!"
+  },
+  "popup_copyAndClose": {
+    "message": "Copy to clipboard & close window"
+  },
+  "popup_copy": {
+    "message": "Copy to clipboard"
+  },
+  "popup_close": {
+    "message": "Close window"
+  },
+  "popup_copied": {
+    "message": "Copied!"
+  }
+}
