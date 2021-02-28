@@ -4,6 +4,7 @@ Changelog
 ## v1.1.0
 
 * Added German translation
+* Let the browser handle where to open the popup
 
 ## 1.0.2
 

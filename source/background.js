@@ -50,8 +50,6 @@ const cnlDecrypt = () => {
 
     chrome.windows.create({
       url: chrome.runtime.getURL(`popup/links-popup.html${popup_params}`),
-      left: 700,
-      top: 0,
       width: 700,
       height: 515,
       type: 'popup'
