@@ -1,4 +1,7 @@
 {
+  "extensionName": {
+    "message": "CNL Decryptor"
+  },
   "extensionDescription": {
     "message": "Entschlüsselt jDownloader Click'N'Load Links"
   },
