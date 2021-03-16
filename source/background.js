@@ -58,29 +58,29 @@ const cnlDecrypt = () => {
     return { cancel: true };
   };
 
-  return ({
-    init: () => {
-      chrome.webRequest.onBeforeRequest.addListener(
-        jdCheckListener,
-        {
-          urls: ['http://127.0.0.1/jdcheck.js*'],
-          types: ['script']
-        },
-        ['blocking']
-      );
+  const init = () => {
+    chrome.webRequest.onBeforeRequest.addListener(
+      jdCheckListener,
+      {
+        urls: ['http://127.0.0.1/jdcheck.js*'],
+        types: ['script']
+      },
+      ['blocking']
+    );
 
-      chrome.webRequest.onBeforeRequest.addListener(
-        addCryptedListener,
-        {
-          urls: [
-            'http://127.0.0.1/flash/add',
-            'http://127.0.0.1/flash/addcrypted2'
-          ]
-        },
-        ['blocking', 'requestBody']
-      );
-    },
-  });
+    chrome.webRequest.onBeforeRequest.addListener(
+      addCryptedListener,
+      {
+        urls: [
+          'http://127.0.0.1/flash/add',
+          'http://127.0.0.1/flash/addcrypted2'
+        ]
+      },
+      ['blocking', 'requestBody']
+    );
+  };
+
+  return init();
 };
 
-cnlDecrypt().init();
+cnlDecrypt();

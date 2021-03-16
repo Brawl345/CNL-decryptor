@@ -11,10 +11,7 @@
     "128": "icons/128.png"
   },
   "background": {
-    "scripts": [
-      "background.js",
-      "lib/crypto-js.js"
-    ]
+    "page": "background.html"
   },
   "permissions": [
     "http://*/*",

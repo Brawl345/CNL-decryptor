@@ -46,28 +46,28 @@ const linksPopup = () => {
     window.close();
   };
 
-  return ({
-    init: () => {
-      localize();
-      const params = new URL(window.location).searchParams;
-      const links = params.get('links');
-      const pw = params.get('pw');
+  const init = () => {
+    localize();
+    const params = new URL(window.location).searchParams;
+    const links = params.get('links');
+    const pw = params.get('pw');
 
-      if (links !== null && links !== '') {
-        HTML.textarea.value = unescape(links).replace(/\0.*$/g, '');
-        if (pw !== null && pw !== '') {
-          HTML.password.value = unescape(pw);
-          HTML.passwordDiv.style.display = 'block';
-        }
-        HTML.copyAndCloseBtn.addEventListener('click', copyLinksAndClose);
-        HTML.copyBtn.addEventListener('click', copyLinks);
-      } else {
-        HTML.copyAndCloseBtn.style.display = 'none';
-        HTML.copyBtn.style.display = 'none';
+    if (links !== null && links !== '') {
+      HTML.textarea.value = unescape(links).replace(/\0.*$/g, '');
+      if (pw !== null && pw !== '') {
+        HTML.password.value = unescape(pw);
+        HTML.passwordDiv.style.display = 'block';
       }
-      HTML.closeBtn.addEventListener('click', () => window.close());
+      HTML.copyAndCloseBtn.addEventListener('click', copyLinksAndClose);
+      HTML.copyBtn.addEventListener('click', copyLinks);
+    } else {
+      HTML.copyAndCloseBtn.style.display = 'none';
+      HTML.copyBtn.style.display = 'none';
     }
-  });
+    HTML.closeBtn.addEventListener('click', () => window.close());
+  };
+
+  return init();
 };
 
-linksPopup().init();
+linksPopup();
