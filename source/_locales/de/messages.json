@@ -6,10 +6,10 @@
     "message": "Entschlüsselt jDownloader Click'N'Load Links"
   },
   "browserAction_enabled": {
-    "message": "CNL Decryptor ist AKTIVIERT - Klicken zum Deaktivieren."
+    "message": "CNL Decryptor ist AKTIVIERT"
   },
   "browserAction_disabled": {
-    "message": "CNL Decryptor ist DEAKTIVIERT - Klicken zum Aktivieren."
+    "message": "CNL Decryptor ist DEAKTIVIERT"
   },
   "popup_noLinks": {
     "message": "Keine Links gefunden!"
