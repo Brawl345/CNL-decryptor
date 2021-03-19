@@ -1,6 +1,11 @@
 Changelog
 =========
 
+## v1.2.0
+
+* Added action button for disabling the add-on (needs new storage permission for options)
+* Internal refactoring, Firefox is the primary development target, Chromium is polyfilled
+
 ## v1.1.0
 
 * Added German translation

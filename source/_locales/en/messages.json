@@ -7,6 +7,12 @@
     "message": "Decrypts jDownloader Click'N'Load links",
     "description": "Description of the extension."
   },
+  "browserAction_enabled": {
+    "message": "CNL Decryptor is ENABLED - click to disable."
+  },
+  "browserAction_disabled": {
+    "message": "CNL Decryptor is DISABLED - click to enable."
+  },
   "popup_noLinks": {
     "message": "No links found!"
   },

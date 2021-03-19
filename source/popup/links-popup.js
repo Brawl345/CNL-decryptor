@@ -3,15 +3,15 @@
 const linksPopup = () => {
 
   const i18n = {
-    title: chrome.i18n.getMessage('extensionName'),
-    noLinks: chrome.i18n.getMessage('popup_noLinks'),
-    passwordLabel: chrome.i18n.getMessage('popup_passwordLabel'),
-    noPassword: chrome.i18n.getMessage('popup_noPassword'),
-    passwordNoCopyMsg: chrome.i18n.getMessage('popup_passwordNoCopyMsg'),
-    copyAndClose: chrome.i18n.getMessage('popup_copyAndClose'),
-    copy: chrome.i18n.getMessage('popup_copy'),
-    close: chrome.i18n.getMessage('popup_close'),
-    copied: chrome.i18n.getMessage('popup_copied'),
+    title: browser.i18n.getMessage('extensionName'),
+    noLinks: browser.i18n.getMessage('popup_noLinks'),
+    passwordLabel: browser.i18n.getMessage('popup_passwordLabel'),
+    noPassword: browser.i18n.getMessage('popup_noPassword'),
+    passwordNoCopyMsg: browser.i18n.getMessage('popup_passwordNoCopyMsg'),
+    copyAndClose: browser.i18n.getMessage('popup_copyAndClose'),
+    copy: browser.i18n.getMessage('popup_copy'),
+    close: browser.i18n.getMessage('popup_close'),
+    copied: browser.i18n.getMessage('popup_copied'),
   };
 
   const HTML = {
