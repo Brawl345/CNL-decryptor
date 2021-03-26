@@ -1,6 +1,6 @@
 {
   "name": "cnl-decryptor",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Click-and-load decryptor WebExtension",
   "repository": {
     "url": "https://github.com/Brawl345/CNL-decryptor"

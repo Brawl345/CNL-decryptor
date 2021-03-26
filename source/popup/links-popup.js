@@ -36,14 +36,16 @@ const linksPopup = () => {
     HTML.closeBtn.textContent = i18n.close;
   };
 
-  const copyLinks = (event) => {
-    navigator.clipboard.writeText(HTML.textarea.value)
-      .then(() => event.target.textContent = i18n.copied);
+  const copy = () => {
+    return navigator.clipboard.writeText(HTML.textarea.value);
   };
 
-  const copyLinksAndClose = (event) => {
-    copyLinks(event);
-    window.close();
+  const copyLinks = (event) => {
+    copy().then(() => event.target.textContent = i18n.copied);
+  };
+
+  const copyLinksAndClose = () => {
+    copy().then(() => window.close());
   };
 
   const init = () => {

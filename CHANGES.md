@@ -1,6 +1,10 @@
 Changelog
 =========
 
+## v1.2.1
+
+* Fix race-condition in copy & close
+
 ## v1.2.0
 
 * Added action button for disabling the add-on (needs new storage permission for options)
