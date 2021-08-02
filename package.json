@@ -17,9 +17,9 @@
   "author": "Brawl345",
   "license": "Unlicense",
   "devDependencies": {
-    "@types/firefox-webext-browser": "^82.0.0",
-    "eslint": "^7.22.0",
-    "web-ext": "^6.0.0"
+    "@types/firefox-webext-browser": "94.0.0",
+    "eslint": "7.32.0",
+    "web-ext":"6.6.0"
   },
   "webExt": {
     "sourceDir": "./source/"
