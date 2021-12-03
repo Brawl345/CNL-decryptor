@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "condition": {
+      "regexFilter": "http://127\\.0\\.0\\.1:9666/jdcheck\\.js(?:\\?.*)?",
+      "resourceTypes": [
+        "script"
+      ]
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/web_accessible_resources/jdcheck.js"
+      }
+    }
+  },
+  {
+    "id": 2,
+    "condition": {
+      "regexFilter": "http://127\\.0\\.0\\.1:9666/flash/add(?:crypted2)?",
+      "resourceTypes": [
+        "main_frame",
+        "script"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  }
+]

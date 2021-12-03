@@ -1,0 +1,13 @@
+{
+  "quoteProps": "consistent",
+  "overrides": [
+    {
+      "files": [
+        "*.js"
+      ],
+      "options": {
+        "singleQuote": true
+      }
+    }
+  ]
+}

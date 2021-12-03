@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "default_locale": "en",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "author": "Andreas Bielawski",
+  "version": "2.0.0",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "background": {
+    "service_worker": "build/service_worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "96": "icons/96.png",
+      "128": "icons/128.png"
+    },
+    "default_title": "__MSG_extensionName__"
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "storage",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "net_rules",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "/web_accessible_resources/jdcheck.js"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "use_dynamic_url": true
+    }
+  ]
+}
