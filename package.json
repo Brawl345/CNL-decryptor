@@ -2,14 +2,20 @@
   "name": "cnl-decryptor",
   "version": "2.0.0",
   "description": "Click'N'Load Decryptor",
-  "author": "Brawl",
+  "author": "Brawl345",
   "license": "Unlicense",
+  "repository": {
+    "url": "https://github.com/Brawl345/CNL-decryptor/"
+  },
   "main": "source/service_worker.js",
   "type": "module",
   "scripts": {
     "dev": "node esbuild.js",
     "start:chrome": "web-ext run -t chromium",
-    "build": "cross-env NODE_ENV=\"production\" node esbuild.js && web-ext build --overwrite-dest"
+    "build": "cross-env NODE_ENV=\"production\" node esbuild.js && web-ext build --overwrite-dest",
+    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+    "web-ext-lint": "cross-env NODE_ENV=\"production\" node esbuild.js && web-ext lint"
   },
   "webExt": {
     "sourceDir": "./public/"

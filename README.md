@@ -18,7 +18,7 @@ the progess here: https://bugs.chromium.org/p/chromium/issues/detail?id=1024211
 ## Build
 
 1. Clone
-2. Install dependencies with `npm install`
+2. Install dependencies with `npm ci`
 3. Run `npm run dev` for bundling the JS
 4. Run `npm run start:chrome` for starting the browser with the extension pre-loaded and ready for debugging with
    hot-reloading

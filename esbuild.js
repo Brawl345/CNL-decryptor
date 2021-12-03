@@ -21,6 +21,8 @@ build({
   ],
   bundle: true,
   minify: true,
+  format: 'esm',
+  splitting: true,
   watch: !isProd,
   sourcemap: isProd ? false : 'inline',
   target: ['chrome96'],

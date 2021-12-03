@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>__extensionName__</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>__extensionName__</title>
 
-  <style>
+    <style>
       #links {
-          width: 99%;
+        width: 99%;
       }
 
       #password-div {
-          display: none;
+        display: none;
       }
-  </style>
-</head>
-<body>
-<label for="links"></label>
-<textarea id="links" placeholder="__popup_noLinks__" readonly rows="23"></textarea>
+    </style>
+  </head>
+  <body>
+    <label for="links"></label>
+    <textarea
+      id="links"
+      placeholder="__popup_noLinks__"
+      readonly
+      rows="23"
+    ></textarea>
 
-<div id="password-div">
-  <label>
-    <span id="password-label">__popup_passwordLabel__</span>
-    <input id="password" placeholder="__popup_noPassword__" readonly size="50" type="text">
-  </label>
-  <br>
-  <span id="password-nocopy-msg">__popup_passwordNoCopyMsg__</span>
-</div>
+    <div id="password-div">
+      <label>
+        <span id="password-label">__popup_passwordLabel__</span>
+        <input
+          id="password"
+          placeholder="__popup_noPassword__"
+          readonly
+          size="50"
+          type="text"
+        />
+      </label>
+      <br />
+      <span id="password-nocopy-msg">__popup_passwordNoCopyMsg__</span>
+    </div>
 
-<p>
-  <button id="copy-and-close" type="button">__popup_copyAndClose__</button>
-  <button id="copy" type="button">__popup_copy__</button>
-  <button id="close" type="button">__popup_close__</button>
-</p>
+    <p>
+      <button id="copy-and-close" type="button">__popup_copyAndClose__</button>
+      <button id="copy" type="button">__popup_copy__</button>
+      <button id="close" type="button">__popup_close__</button>
+    </p>
 
-<script src="../build/links-popup.js"></script>
-</body>
+    <script src="../build/links-popup.js"></script>
+  </body>
 </html>

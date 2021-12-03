@@ -24,15 +24,8 @@
     },
     "default_title": "__MSG_extensionName__"
   },
-  "permissions": [
-    "declarativeNetRequest",
-    "storage",
-    "webRequest"
-  ],
-  "host_permissions": [
-    "http://*/*",
-    "https://*/*"
-  ],
+  "permissions": ["declarativeNetRequest", "storage", "webRequest"],
+  "host_permissions": ["http://*/*", "https://*/*"],
   "declarative_net_request": {
     "rule_resources": [
       {
@@ -44,13 +37,8 @@
   },
   "web_accessible_resources": [
     {
-      "resources": [
-        "/web_accessible_resources/jdcheck.js"
-      ],
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
+      "resources": ["/web_accessible_resources/jdcheck.js"],
+      "matches": ["http://*/*", "https://*/*"],
       "use_dynamic_url": true
     }
   ]

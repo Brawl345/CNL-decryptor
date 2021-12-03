@@ -3,9 +3,7 @@
     "id": 1,
     "condition": {
       "regexFilter": "http://127\\.0\\.0\\.1:9666/jdcheck\\.js(?:\\?.*)?",
-      "resourceTypes": [
-        "script"
-      ]
+      "resourceTypes": ["script"]
     },
     "action": {
       "type": "redirect",
@@ -18,10 +16,7 @@
     "id": 2,
     "condition": {
       "regexFilter": "http://127\\.0\\.0\\.1:9666/flash/add(?:crypted2)?",
-      "resourceTypes": [
-        "main_frame",
-        "script"
-      ]
+      "resourceTypes": ["main_frame", "script"]
     },
     "action": {
       "type": "block"
