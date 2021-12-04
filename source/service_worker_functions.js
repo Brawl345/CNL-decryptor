@@ -67,6 +67,7 @@ export const setInitialSettings = ({ reason }) => {
     return;
   }
   chrome.storage.local.set({ [OPTION_KEY]: true });
+  setupAction();
 };
 
 export const setupAction = async () => {

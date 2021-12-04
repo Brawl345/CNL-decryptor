@@ -15,6 +15,5 @@ chrome.webRequest.onBeforeRequest.addListener(
 
 chrome.action.onClicked.addListener(switchState);
 chrome.runtime.onInstalled.addListener(setInitialSettings);
+chrome.runtime.onStartup.addListener(setupAction);
 chrome.storage.local.onChanged.addListener(setupAction);
-
-setupAction();
