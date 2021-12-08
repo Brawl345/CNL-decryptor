@@ -4,16 +4,11 @@ Intercepts Click'N'Load requests to jDownloader and shows the plain URLs and pas
 
 The add-on can be temporarily disabled via an action button in the toolbar.
 
-## Warning: Chrome Bug!
-
-Manifest v3 has a nasty bug that prevents the webRequest API from working when the service worker goes to sleep. Track
-the progess here: https://bugs.chromium.org/p/chromium/issues/detail?id=1024211
-
 ## Install
 
-- Available on [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/cnl-decryptor/)
 - Available on
-  the [Chrome Web Store](https://chrome.google.com/webstore/detail/cnl-decryptor/hfmolcaikbnbminafcmeiejglbeelilh)
+  the [Chrome Web Store](https://chrome.google.com/webstore/detail/cnl-decryptor/hfmolcaikbnbminafcmeiejglbeelilh) (Requires Chrome 107+)
+- Available on [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/cnl-decryptor/)
 
 ## Build
 

@@ -1,2 +1,2 @@
-/* eslint-disable */
+// eslint-disable-next-line no-undef
 jdownloader = true;

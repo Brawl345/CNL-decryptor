@@ -7,27 +7,29 @@
   "repository": {
     "url": "https://github.com/Brawl345/CNL-decryptor/"
   },
-  "main": "source/service_worker.js",
+  "main": "source/service-worker.js",
   "type": "module",
   "scripts": {
     "dev": "node esbuild.js",
     "start:chrome": "web-ext run -t chromium",
     "build": "cross-env NODE_ENV=\"production\" node esbuild.js && web-ext build --overwrite-dest",
-    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+    "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
-    "web-ext-lint": "cross-env NODE_ENV=\"production\" node esbuild.js && web-ext lint"
+    "web-ext-lint": "cross-env NODE_ENV=\"production\" node esbuild.js && web-ext lint",
+    "global:check-dependencies": "npm-check --skip-unused"
   },
   "webExt": {
     "sourceDir": "./public/"
   },
   "devDependencies": {
-    "chrome-types": "0.1.73",
+    "chrome-types": "0.1.141",
     "cross-env": "7.0.3",
-    "eslint": "7.32.0",
-    "eslint-config-prettier": "8.3.0",
-    "esbuild": "0.14.1",
-    "prettier": "2.5.0",
-    "web-ext": "6.6.0"
+    "eslint": "8.26.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-unicorn": "44.0.2",
+    "esbuild": "0.15.12",
+    "prettier": "2.7.1",
+    "web-ext": "7.3.1"
   },
   "dependencies": {
     "crypto-es": "1.2.7"

@@ -1,5 +1,3 @@
-'use strict';
-
 const i18n = {
   title: chrome.i18n.getMessage('extensionName'),
   noLinks: chrome.i18n.getMessage('popup_noLinks'),
@@ -13,19 +11,17 @@ const i18n = {
 };
 
 const HTML = {
-  textarea: document.getElementById('links'),
-  passwordDiv: document.getElementById('password-div'),
-  passwordLabel: document.getElementById('password-label'),
-  password: document.getElementById('password'),
-  passwordNoCopyMsg: document.getElementById('password-nocopy-msg'),
-  copyAndCloseBtn: document.getElementById('copy-and-close'),
-  copyBtn: document.getElementById('copy'),
-  closeBtn: document.getElementById('close'),
+  textarea: document.querySelector('#links'),
+  passwordDiv: document.querySelector('#password-div'),
+  passwordLabel: document.querySelector('#password-label'),
+  password: document.querySelector('#password'),
+  passwordNoCopyMsg: document.querySelector('#password-nocopy-msg'),
+  copyAndCloseBtn: document.querySelector('#copy-and-close'),
+  copyBtn: document.querySelector('#copy'),
+  closeBtn: document.querySelector('#close'),
 };
 
-const copy = () => {
-  return navigator.clipboard.writeText(HTML.textarea.value);
-};
+const copy = () => navigator.clipboard.writeText(HTML.textarea.value);
 
 const copyLinks = (event) => {
   copy().then(() => (event.target.textContent = i18n.copied));
@@ -45,9 +41,9 @@ HTML.copyAndCloseBtn.textContent = i18n.copyAndClose;
 HTML.copyBtn.textContent = i18n.copy;
 HTML.closeBtn.textContent = i18n.close;
 
-const params = new URL(window.location).searchParams;
-const links = params.get('links');
-const pw = params.get('pw');
+const parameters = new URL(window.location).searchParams;
+const links = parameters.get('links');
+const pw = parameters.get('pw');
 
 if (links !== null && links !== '') {
   HTML.textarea.value = unescape(links).replace(/\0.*$/g, '');

@@ -1,11 +1,13 @@
+#!/usr/bin/env node
+/* eslint-disable unicorn/prefer-top-level-await */
 import { build } from 'esbuild';
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { rmSync } from 'node:fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const isProd = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 
 try {
   rmSync(resolve('public', 'build'), { recursive: true });
@@ -16,18 +18,20 @@ try {
 
 build({
   entryPoints: [
-    resolve(__dirname, 'source', 'service_worker.js'),
+    resolve(__dirname, 'source', 'service-worker.js'),
     resolve(__dirname, 'source', 'links-popup.js'),
   ],
   bundle: true,
-  minify: true,
+  minify: false,
   format: 'esm',
   splitting: true,
-  watch: !isProd,
-  sourcemap: isProd ? false : 'inline',
+  watch: !isProduction,
+  sourcemap: isProduction ? false : 'inline',
   target: ['chrome96'],
+  logLevel: 'info',
+  legalComments: 'none',
   outdir: resolve(__dirname, 'public', 'build'),
-}).catch((err) => {
-  console.error(err);
+}).catch((error) => {
+  console.error(error);
   process.exit(1);
 });

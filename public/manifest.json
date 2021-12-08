@@ -11,7 +11,7 @@
     "128": "icons/128.png"
   },
   "background": {
-    "service_worker": "build/service_worker.js",
+    "service_worker": "build/service-worker.js",
     "type": "module"
   },
   "action": {

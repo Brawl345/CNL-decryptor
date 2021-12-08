@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -19,10 +19,10 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "16"
 
@@ -36,8 +36,8 @@ jobs:
         run: npm run build
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: CNL-decryptor-${{github.sha}}
-          path: web-ext-artifacts/*.zip
+          name: CNL-decryptor-${{github.sha}}.zip
+          path: public/*
           if-no-files-found: error

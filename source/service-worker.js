@@ -3,7 +3,7 @@ import {
   setInitialSettings,
   setupAction,
   switchState,
-} from './service_worker_functions.js';
+} from './service-worker-functions.js';
 
 chrome.webRequest.onBeforeRequest.addListener(
   addCryptedListener,

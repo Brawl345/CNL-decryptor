@@ -1,7 +1,7 @@
 import CryptoES from 'crypto-es';
 import { AES } from 'crypto-es/lib/aes';
 
-const keyFuncRegex = /return ['"]([0-9A-Fa-f]+)['"]/;
+const keyFunctionRegex = /return ["']([\dA-Fa-f]+)["']/;
 const OPTION_KEY = 'enabled';
 
 const i18n = {
@@ -32,7 +32,7 @@ export const addCryptedListener = async ({ url, requestBody }) => {
     links = urls[0];
   } else {
     // Standard CLN2 with Crypto
-    const key = CryptoES.enc.Hex.parse(jk[0].match(keyFuncRegex)[1]);
+    const key = CryptoES.enc.Hex.parse(jk[0].match(keyFunctionRegex)[1]);
     const decrypted = AES.decrypt(crypted[0], key, {
       mode: CryptoES.mode.CBC,
       iv: key,
@@ -42,13 +42,13 @@ export const addCryptedListener = async ({ url, requestBody }) => {
   }
   links = links.replace(/\s+/g, '\n');
 
-  let popup_params = `?links=${escape(links)}`;
+  let popup_parameters = `?links=${escape(links)}`;
   if (passwords !== '' && passwords !== undefined && passwords !== '') {
-    popup_params += `&pw=${escape(passwords[0])}`;
+    popup_parameters += `&pw=${escape(passwords[0])}`;
   }
 
   chrome.windows.create({
-    url: chrome.runtime.getURL(`popup/links-popup.html${popup_params}`),
+    url: chrome.runtime.getURL(`popup/links-popup.html${popup_parameters}`),
     width: 700,
     height: 515,
     type: 'popup',
