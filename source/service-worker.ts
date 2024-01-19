@@ -6,11 +6,12 @@ import {
 } from './service-worker-functions.js';
 
 chrome.webRequest.onBeforeRequest.addListener(
+  // @ts-expect-error - Chrome does support Promises...
   addCryptedListener,
   {
     urls: ['http://127.0.0.1/flash/add', 'http://127.0.0.1/flash/addcrypted2'],
   },
-  ['requestBody']
+  ['requestBody'],
 );
 
 chrome.action.onClicked.addListener(switchState);

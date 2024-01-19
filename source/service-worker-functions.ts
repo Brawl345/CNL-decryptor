@@ -1,15 +1,15 @@
 import CryptoES from 'crypto-es';
 import { AES } from 'crypto-es/lib/aes';
+import WebRequestBodyDetails = chrome.webRequest.WebRequestBodyDetails;
+import BlockingResponse = chrome.webRequest.BlockingResponse;
+import InstalledDetails = chrome.runtime.InstalledDetails;
 
 const keyFunctionRegex = /return ["']([\dA-Fa-f]+)["']/;
 const OPTION_KEY = 'enabled';
 
 const i18n = {
-  // i18n.getMessage() does not work in Service Workers currently
-  // enabled: chrome.i18n.getMessage('browserAction_enabled'),
-  // disabled: chrome.i18n.getMessage('browserAction_disabled'),
-  enabled: 'CNL Decryptor is ENABLED',
-  disabled: 'CNL Decryptor is DISABLED',
+  enabled: chrome.i18n.getMessage('browserAction_enabled'),
+  disabled: chrome.i18n.getMessage('browserAction_disabled'),
 };
 
 const isEnabled = async () => {
@@ -17,9 +17,13 @@ const isEnabled = async () => {
   return (items.enabled ??= true);
 };
 
-export const addCryptedListener = async ({ url, requestBody }) => {
+export const addCryptedListener = async ({ url, requestBody }: WebRequestBodyDetails): Promise<BlockingResponse> => {
   // Check port, because it's not allowed in RequestListener
   if (!url.startsWith('http://127.0.0.1:9666/') || !(await isEnabled())) {
+    return {};
+  }
+
+  if (requestBody?.formData === undefined) {
     return {};
   }
 
@@ -32,7 +36,13 @@ export const addCryptedListener = async ({ url, requestBody }) => {
     links = urls[0];
   } else {
     // Standard CLN2 with Crypto
-    const key = CryptoES.enc.Hex.parse(jk[0].match(keyFunctionRegex)[1]);
+
+    const jkMatch = jk[0].match(keyFunctionRegex);
+    if (jkMatch === null) {
+      return {};
+    }
+
+    const key = CryptoES.enc.Hex.parse(jkMatch[1]);
     const decrypted = AES.decrypt(crypted[0], key, {
       mode: CryptoES.mode.CBC,
       iv: key,
@@ -49,9 +59,9 @@ export const addCryptedListener = async ({ url, requestBody }) => {
     .replaceAll(/\s+/g, '\n')
     .trim();
 
-  let popup_parameters = `?links=${escape(links)}`;
-  if (passwords !== '' && passwords !== undefined && passwords !== '') {
-    popup_parameters += `&pw=${escape(passwords[0])}`;
+  let popup_parameters = `?links=${encodeURIComponent(links)}`;
+  if (passwords !== undefined && passwords[0] !== '') {
+    popup_parameters += `&pw=${encodeURIComponent(passwords[0])}`;
   }
 
   await chrome.windows.create({
@@ -69,7 +79,7 @@ export const switchState = async () => {
   await chrome.storage.local.set({ enabled: !enabled });
 };
 
-export const setInitialSettings = ({ reason }) => {
+export const setInitialSettings = ({ reason }: InstalledDetails) => {
   if (reason !== chrome.runtime.OnInstalledReason.INSTALL) {
     return;
   }

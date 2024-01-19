@@ -1,6 +1,6 @@
 {
   "name": "cnl-decryptor",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Click'N'Load Decryptor",
   "author": "Brawl345",
   "license": "Unlicense",
@@ -9,7 +9,8 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "node esbuild.js",
+    "dev": "node build.js",
+    "typecheck": "tsc --noEmit source/*.ts",
     "start:chrome": "web-ext run -t chromium",
     "build": "cross-env NODE_ENV=\"production\" node esbuild.js && web-ext build --overwrite-dest",
     "lint": "eslint --ignore-path .gitignore .",
@@ -21,13 +22,17 @@
     "sourceDir": "./public/"
   },
   "devDependencies": {
-    "chrome-types":"0.1.251",
+    "@types/chrome": "0.0.258",
+    "@typescript-eslint/eslint-plugin": "6.19.0",
+    "@typescript-eslint/parser": "6.19.0",
     "cross-env": "7.0.3",
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-unicorn": "50.0.1",
     "esbuild": "^0.16.0",
     "prettier": "3.2.4",
+    "ts-node": "10.9.2",
+    "typescript": "5.3.3",
     "web-ext": "7.10.0"
   },
   "dependencies": {

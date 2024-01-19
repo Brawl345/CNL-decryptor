@@ -1,8 +1,9 @@
 {
   "quoteProps": "consistent",
+  "printWidth": 120,
   "overrides": [
     {
-      "files": ["*.js"],
+      "files": ["*.js", "*.ts"],
       "options": {
         "singleQuote": true
       }

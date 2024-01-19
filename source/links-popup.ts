@@ -11,20 +11,20 @@ const i18n = {
 };
 
 const HTML = {
-  textarea: document.querySelector('#links'),
-  passwordDiv: document.querySelector('#password-div'),
-  passwordLabel: document.querySelector('#password-label'),
-  password: document.querySelector('#password'),
-  passwordNoCopyMsg: document.querySelector('#password-nocopy-msg'),
-  copyAndCloseBtn: document.querySelector('#copy-and-close'),
-  copyBtn: document.querySelector('#copy'),
-  closeBtn: document.querySelector('#close'),
+  textarea: document.querySelector('#links') as HTMLTextAreaElement,
+  passwordDiv: document.querySelector('#password-div') as HTMLDivElement,
+  passwordLabel: document.querySelector('#password-label') as HTMLSpanElement,
+  password: document.querySelector('#password') as HTMLInputElement,
+  passwordNoCopyMsg: document.querySelector('#password-nocopy-msg') as HTMLSpanElement,
+  copyAndCloseBtn: document.querySelector('#copy-and-close') as HTMLButtonElement,
+  copyBtn: document.querySelector('#copy') as HTMLButtonElement,
+  closeBtn: document.querySelector('#close') as HTMLButtonElement,
 };
 
 const copy = () => navigator.clipboard.writeText(HTML.textarea.value);
 
-const copyLinks = (event) => {
-  copy().then(() => (event.target.textContent = i18n.copied));
+const copyLinks = (event: Event) => {
+  copy().then(() => ((event.target as HTMLSpanElement).textContent = i18n.copied));
 };
 
 const copyLinksAndClose = () => {
@@ -41,14 +41,14 @@ HTML.copyAndCloseBtn.textContent = i18n.copyAndClose;
 HTML.copyBtn.textContent = i18n.copy;
 HTML.closeBtn.textContent = i18n.close;
 
-const parameters = new URL(window.location).searchParams;
+const parameters = new URL(window.location.href).searchParams;
 const links = parameters.get('links');
 const pw = parameters.get('pw');
 
 if (links !== null && links !== '') {
-  HTML.textarea.value = unescape(links).replace(/\0.*$/g, '');
+  HTML.textarea.value = decodeURIComponent(links).replaceAll(/\0.*$/g, '');
   if (pw !== null && pw !== '') {
-    HTML.password.value = unescape(pw);
+    HTML.password.value = decodeURIComponent(pw);
     HTML.passwordDiv.style.display = 'block';
   }
   HTML.copyAndCloseBtn.addEventListener('click', copyLinksAndClose);
