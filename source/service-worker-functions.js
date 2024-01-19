@@ -38,9 +38,16 @@ export const addCryptedListener = async ({ url, requestBody }) => {
       iv: key,
       padding: CryptoES.pad.NoPadding,
     });
-    links = CryptoES.enc.Utf8.stringify(decrypted);
+    try {
+      links = CryptoES.enc.Utf8.stringify(decrypted);
+    } catch {
+      links = CryptoES.enc.Latin1.stringify(decrypted);
+    }
   }
-  links = links.replace(/\s+/g, '\n');
+  links = links
+    .replace(/.*http/, 'http')
+    .replace(/\s+/g, '\n')
+    .trim();
 
   let popup_parameters = `?links=${escape(links)}`;
   if (passwords !== '' && passwords !== undefined && passwords !== '') {
