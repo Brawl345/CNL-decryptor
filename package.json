@@ -12,7 +12,7 @@
     "dev": "node build.js",
     "typecheck": "tsc --noEmit source/*.ts",
     "start:chrome": "web-ext run -t chromium",
-    "build": "cross-env NODE_ENV=\"production\" node esbuild.js && web-ext build --overwrite-dest",
+    "build": "cross-env NODE_ENV=\"production\" node build.js && web-ext build --overwrite-dest",
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
     "web-ext-lint": "cross-env NODE_ENV=\"production\" node esbuild.js && web-ext lint",
