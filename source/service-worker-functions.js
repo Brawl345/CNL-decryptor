@@ -46,7 +46,7 @@ export const addCryptedListener = async ({ url, requestBody }) => {
   }
   links = links
     .replace(/.*http/, 'http')
-    .replace(/\s+/g, '\n')
+    .replaceAll(/\s+/g, '\n')
     .trim();
 
   let popup_parameters = `?links=${escape(links)}`;
@@ -54,7 +54,7 @@ export const addCryptedListener = async ({ url, requestBody }) => {
     popup_parameters += `&pw=${escape(passwords[0])}`;
   }
 
-  chrome.windows.create({
+  await chrome.windows.create({
     url: chrome.runtime.getURL(`popup/links-popup.html${popup_parameters}`),
     width: 700,
     height: 515,
@@ -66,7 +66,7 @@ export const addCryptedListener = async ({ url, requestBody }) => {
 
 export const switchState = async () => {
   const enabled = await isEnabled();
-  chrome.storage.local.set({ enabled: !enabled });
+  await chrome.storage.local.set({ enabled: !enabled });
 };
 
 export const setInitialSettings = ({ reason }) => {
@@ -89,7 +89,7 @@ export const setupAction = async () => {
       96: '/icons/48.png',
       128: '/icons/128.png',
     };
-    chrome.declarativeNetRequest.updateEnabledRulesets({
+    await chrome.declarativeNetRequest.updateEnabledRulesets({
       enableRulesetIds: ['net_rules'],
     });
   } else {
@@ -101,15 +101,15 @@ export const setupAction = async () => {
       96: '/icons/disabled/48.png',
       128: '/icons/disabled/128.png',
     };
-    chrome.declarativeNetRequest.updateEnabledRulesets({
+    await chrome.declarativeNetRequest.updateEnabledRulesets({
       disableRulesetIds: ['net_rules'],
     });
   }
 
-  chrome.action.setTitle({
+  await chrome.action.setTitle({
     title: title,
   });
-  chrome.action.setIcon({
+  await chrome.action.setIcon({
     path: icons,
   });
 };

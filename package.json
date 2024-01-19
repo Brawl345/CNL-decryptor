@@ -7,7 +7,6 @@
   "repository": {
     "url": "https://github.com/Brawl345/CNL-decryptor/"
   },
-  "main": "source/service-worker.js",
   "type": "module",
   "scripts": {
     "dev": "node esbuild.js",
@@ -22,16 +21,16 @@
     "sourceDir": "./public/"
   },
   "devDependencies": {
-    "chrome-types": "0.1.141",
+    "chrome-types":"0.1.251",
     "cross-env": "7.0.3",
-    "eslint": "8.26.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-unicorn": "44.0.2",
-    "esbuild": "0.15.12",
-    "prettier": "2.7.1",
-    "web-ext": "7.3.1"
+    "eslint": "8.56.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-unicorn": "50.0.1",
+    "esbuild": "^0.16.0",
+    "prettier": "3.2.4",
+    "web-ext": "7.10.0"
   },
   "dependencies": {
-    "crypto-es": "1.2.7"
+    "crypto-es": "2.1.0"
   }
 }
