@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.1.0
+
+- Fix decryption for certain misbehaving sites
+- Migrate to TypeScript
+
 ## v2.0.0
 
 - Update to Manifest v3
