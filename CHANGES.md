@@ -3,6 +3,7 @@
 ## v2.1.0
 
 - Fix decryption for certain misbehaving sites
+- Fix requests to jDownloader not being blocked
 - Migrate to TypeScript
 
 ## v2.0.0

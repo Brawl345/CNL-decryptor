@@ -6,6 +6,7 @@ import InstalledDetails = chrome.runtime.InstalledDetails;
 
 const keyFunctionRegex = /return ["']([\dA-Fa-f]+)["']/;
 const OPTION_KEY = 'enabled';
+const RULESET_ID = 'net_rules';
 
 const i18n = {
   enabled: chrome.i18n.getMessage('browserAction_enabled'),
@@ -100,7 +101,7 @@ export const setupAction = async () => {
       128: '/icons/128.png',
     };
     await chrome.declarativeNetRequest.updateEnabledRulesets({
-      enableRulesetIds: ['net_rules'],
+      enableRulesetIds: [RULESET_ID],
     });
   } else {
     title = i18n.disabled;
@@ -112,7 +113,7 @@ export const setupAction = async () => {
       128: '/icons/disabled/128.png',
     };
     await chrome.declarativeNetRequest.updateEnabledRulesets({
-      disableRulesetIds: ['net_rules'],
+      disableRulesetIds: [RULESET_ID],
     });
   }
 
