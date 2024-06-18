@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.1.1
+
+- Fix Firefox compatibility
+
 ## v2.1.0
 
 - Fix decryption for certain misbehaving sites
