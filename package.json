@@ -23,18 +23,18 @@
     "sourceDir": "./public/"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.258",
+    "@types/chrome": "0.0.269",
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",
     "cross-env": "7.0.3",
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-unicorn": "50.0.1",
-    "esbuild": "^0.16.0",
-    "prettier": "3.2.4",
-    "ts-node": "10.9.2",
-    "typescript": "5.3.3",
-    "web-ext": "8.1.0"
+    "esbuild": "0.23.0",
+    "prettier": "3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "5.5.4",
+    "web-ext": "8.2.0"
   },
   "dependencies": {
     "crypto-es": "2.1.0"
