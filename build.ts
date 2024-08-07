@@ -17,17 +17,14 @@ try {
 }
 
 build({
-  entryPoints: [
-    resolve(__dirname, 'source', 'service-worker.js'),
-    resolve(__dirname, 'source', 'links-popup.js'),
-  ],
+  entryPoints: [resolve(__dirname, 'source', 'service-worker.ts'), resolve(__dirname, 'source', 'links-popup.ts')],
   bundle: true,
   minify: false,
   format: 'esm',
   splitting: true,
   watch: !isProduction,
   sourcemap: isProduction ? false : 'inline',
-  target: ['chrome96'],
+  target: ['chrome120', 'firefox120'],
   logLevel: 'info',
   legalComments: 'none',
   outdir: resolve(__dirname, 'public', 'build'),
