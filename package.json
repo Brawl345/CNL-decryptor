@@ -9,14 +9,14 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "node build.js",
+    "dev": "tsx build.ts",
     "typecheck": "tsc --noEmit source/*.ts",
     "start:chrome": "web-ext run -t chromium",
     "start:firefox": "web-ext run -t firefox-desktop",
-    "build": "cross-env NODE_ENV=\"production\" node build.js && web-ext build --overwrite-dest",
+    "build": "cross-env NODE_ENV=\"production\" tsx build.ts && web-ext build --overwrite-dest",
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
-    "web-ext-lint": "cross-env NODE_ENV=\"production\" node esbuild.js && web-ext lint",
+    "web-ext-lint": "cross-env NODE_ENV=\"production\" tsx build.ts && web-ext lint",
     "global:check-dependencies": "npm-check --skip-unused",
     "web-ext:build": "npm run build && web-ext build --overwrite-dest",
     "web-ext:upload": "web-ext sign --channel=listed"
@@ -25,7 +25,7 @@
     "sourceDir": "./public/"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.269",
+    "@types/chrome": "^0.0.269",
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",
     "cross-env": "7.0.3",
@@ -34,7 +34,7 @@
     "eslint-plugin-unicorn": "50.0.1",
     "esbuild": "0.16.0",
     "prettier": "3.3.3",
-    "ts-node": "^10.9.2",
+    "tsx": "4.16.5",
     "typescript": "5.5.4",
     "web-ext": "8.2.0"
   },
