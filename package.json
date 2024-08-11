@@ -13,13 +13,12 @@
     "typecheck": "tsc --noEmit source/*.ts",
     "start:chrome": "web-ext run -t chromium",
     "start:firefox": "web-ext run -t firefox-desktop",
-    "build": "cross-env NODE_ENV=\"production\" tsx build.ts && web-ext build --overwrite-dest",
+    "build": "cross-env NODE_ENV=\"production\" tsx build.ts",
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
-    "web-ext-lint": "cross-env NODE_ENV=\"production\" tsx build.ts && web-ext lint",
-    "global:check-dependencies": "npm-check --skip-unused",
+    "web-ext-lint": "npm run build && web-ext lint",
     "web-ext:build": "npm run build && web-ext build --overwrite-dest",
-    "web-ext:upload": "web-ext sign --channel=listed"
+    "web-ext:upload": "npm run web-ext:build && web-ext sign --channel=listed"
   },
   "webExt": {
     "sourceDir": "./public/"
