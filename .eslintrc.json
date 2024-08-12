@@ -54,6 +54,7 @@
       "always"
     ],
     "unicorn/no-null": "off",
+    "unicorn/prevent-abbreviations": "off",
     "arrow-body-style": "error",
     "no-var": "error",
     "prefer-arrow-callback": "error",

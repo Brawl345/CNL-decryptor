@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable unicorn/prefer-top-level-await */
-import { build } from 'esbuild';
+import { context } from 'esbuild';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { rmSync } from 'node:fs';
@@ -16,13 +15,12 @@ try {
   //
 }
 
-build({
+const ctx = await context({
   entryPoints: [resolve(__dirname, 'source', 'service-worker.ts'), resolve(__dirname, 'source', 'links-popup.ts')],
   bundle: true,
   minify: false,
   format: 'esm',
   splitting: true,
-  watch: !isProduction,
   sourcemap: isProduction ? false : 'inline',
   target: ['chrome120', 'firefox120'],
   logLevel: 'info',
@@ -32,3 +30,10 @@ build({
   console.error(error);
   process.exit(1);
 });
+
+if (isProduction) {
+  await ctx.rebuild();
+  await ctx.dispose();
+} else {
+  await ctx.watch();
+}
