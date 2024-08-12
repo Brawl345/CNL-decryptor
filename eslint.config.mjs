@@ -31,6 +31,7 @@ export default tseslint.config(
       'prefer-arrow-callback': 'error',
       'prefer-template': 'error',
       'unicorn/no-null': 'off',
+      'unicorn/prefer-top-level-await': 'off',
       'unicorn/prevent-abbreviations': 'off',
     },
   },
