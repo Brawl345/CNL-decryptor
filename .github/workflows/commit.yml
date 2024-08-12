@@ -37,11 +37,11 @@ jobs:
           npm run lint:web-ext
 
       - name: Build
-        run: npm run web-ext:build
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: CNL-decryptor-${{github.sha}}
-          path: web-ext-artifacts/*.zip
+          path: public/*
           if-no-files-found: error
