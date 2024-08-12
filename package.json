@@ -10,12 +10,12 @@
   "type": "module",
   "scripts": {
     "dev": "tsx build.ts",
-    "typecheck": "tsc --noEmit source/*.ts",
+    "build": "cross-env NODE_ENV=\"production\" tsx build.ts",
     "start:chrome": "web-ext run -t chromium",
     "start:firefox": "web-ext run -t firefox-desktop",
-    "build": "cross-env NODE_ENV=\"production\" tsx build.ts",
-    "lint": "eslint --ignore-path .gitignore .",
-    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+    "tsc": "tsc --project tsconfig.json",
+    "lint": "eslint .",
+    "prettier": "prettier --check .",
     "web-ext-lint": "npm run build && web-ext lint",
     "web-ext:build": "npm run build && web-ext build --overwrite-dest",
     "web-ext:upload": "npm run web-ext:build && web-ext sign --channel=listed"
