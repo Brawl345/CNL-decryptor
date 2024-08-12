@@ -23,14 +23,11 @@
   "popup_passwordNoCopyMsg": {
     "message": "ACHTUNG: Das Passwort wird nicht kopiert!"
   },
-  "popup_copyAndClose": {
-    "message": "In die Zwischenablage kopieren & Fenster schließen"
-  },
   "popup_copy": {
     "message": "In die Zwischenablage kopieren"
   },
-  "popup_close": {
-    "message": "Fenster schließen"
+  "popup_share": {
+    "message": "Teilen"
   },
   "popup_copied": {
     "message": "Kopiert!"

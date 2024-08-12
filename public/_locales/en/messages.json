@@ -25,14 +25,11 @@
   "popup_passwordNoCopyMsg": {
     "message": "NOTE: Password won't be copied!"
   },
-  "popup_copyAndClose": {
-    "message": "Copy to clipboard & close window"
-  },
   "popup_copy": {
     "message": "Copy to clipboard"
   },
-  "popup_close": {
-    "message": "Close window"
+  "popup_share": {
+    "message": "Share"
   },
   "popup_copied": {
     "message": "Copied!"

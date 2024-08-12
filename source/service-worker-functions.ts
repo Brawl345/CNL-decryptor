@@ -66,11 +66,8 @@ export const addCryptedListener = async ({
     popup_parameters += `&pw=${encodeURIComponent(passwords[0])}`;
   }
 
-  await chrome.windows.create({
+  await chrome.tabs.create({
     url: chrome.runtime.getURL(`popup/links-popup.html${popup_parameters}`),
-    width: 700,
-    height: 515,
-    type: 'popup',
   });
 
   return {};

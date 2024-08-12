@@ -1,6 +1,6 @@
 {
   "name": "cnl-decryptor",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Click'N'Load Decryptor",
   "author": "Brawl345",
   "license": "Unlicense",
@@ -13,6 +13,7 @@
     "build": "cross-env NODE_ENV=\"production\" tsx build.ts",
     "start:chrome": "web-ext run -t chromium",
     "start:firefox": "web-ext run -t firefox-desktop",
+    "start:firefox-android": "web-ext run -t firefox-android",
     "lint:types": "tsc --project tsconfig.json",
     "lint:code": "eslint .",
     "lint:style": "prettier --check .",
@@ -21,7 +22,13 @@
     "web-ext:upload": "npm run web-ext:build && web-ext sign --channel=listed"
   },
   "webExt": {
-    "sourceDir": "./public/"
+    "sourceDir": "./public/",
+    "run": {
+      "startUrl": [
+        "about:debugging#/runtime/this-firefox",
+        "https://jdownloader.org/knowledge/wiki/glossary/cnl2"
+      ]
+    }
   },
   "devDependencies": {
     "@eslint/js": "9.9.0",

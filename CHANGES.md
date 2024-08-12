@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.2.0
+
+- Switch to a tab instead of a popup with a new design
+- Publish for Firefox for Android
+
 ## v2.1.1
 
 - Fix Firefox compatibility
