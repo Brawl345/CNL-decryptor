@@ -1,22 +1,25 @@
 #!/usr/bin/env node
 import { context } from 'esbuild';
 import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import path from 'node:path';
 import { rmSync } from 'node:fs';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 const isProduction = process.env.NODE_ENV === 'production';
 
 try {
-  rmSync(resolve('public', 'build'), { recursive: true });
-  rmSync(resolve('public', '_metadata'), { recursive: true });
+  rmSync(path.resolve('public', 'build'), { recursive: true });
+  rmSync(path.resolve('public', '_metadata'), { recursive: true });
 } catch {
   //
 }
 
 const ctx = await context({
-  entryPoints: [resolve(__dirname, 'source', 'service-worker.ts'), resolve(__dirname, 'source', 'links-popup.ts')],
+  entryPoints: [
+    path.resolve(__dirname, 'source', 'service-worker.ts'),
+    path.resolve(__dirname, 'source', 'links-popup.ts'),
+  ],
   bundle: true,
   minify: false,
   format: 'esm',
@@ -25,7 +28,7 @@ const ctx = await context({
   target: ['chrome120', 'firefox120'],
   logLevel: 'info',
   legalComments: 'none',
-  outdir: resolve(__dirname, 'public', 'build'),
+  outdir: path.resolve(__dirname, 'public', 'build'),
 }).catch((error) => {
   console.error(error);
   process.exit(1);
