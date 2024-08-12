@@ -1,8 +1,6 @@
 import CryptoES from 'crypto-es';
 import { AES } from 'crypto-es/lib/aes';
-import WebRequestBodyDetails = chrome.webRequest.WebRequestBodyDetails;
-import BlockingResponse = chrome.webRequest.BlockingResponse;
-import InstalledDetails = chrome.runtime.InstalledDetails;
+import { getOptions } from './storage';
 
 const keyFunctionRegex = /return ["']([\dA-Fa-f]+)["']/;
 const OPTION_KEY = 'enabled';
@@ -14,11 +12,14 @@ const i18n = {
 };
 
 const isEnabled = async () => {
-  const items = await chrome.storage.local.get(OPTION_KEY);
-  return (items.enabled ??= true);
+  const { enabled } = await getOptions();
+  return enabled;
 };
 
-export const addCryptedListener = async ({ url, requestBody }: WebRequestBodyDetails): Promise<BlockingResponse> => {
+export const addCryptedListener = async ({
+  url,
+  requestBody,
+}: chrome.webRequest.WebRequestBodyDetails): Promise<chrome.webRequest.BlockingResponse> => {
   // Check port, because it's not allowed in RequestListener
   if (!url.startsWith('http://127.0.0.1:9666/') || !(await isEnabled())) {
     return {};
@@ -80,7 +81,7 @@ export const switchState = async () => {
   await chrome.storage.local.set({ enabled: !enabled });
 };
 
-export const setInitialSettings = ({ reason }: InstalledDetails) => {
+export const setInitialSettings = ({ reason }: chrome.runtime.InstalledDetails) => {
   if (reason !== chrome.runtime.OnInstalledReason.INSTALL) {
     return;
   }
