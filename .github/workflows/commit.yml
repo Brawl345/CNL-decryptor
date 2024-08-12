@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -19,10 +19,10 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
 
@@ -30,14 +30,18 @@ jobs:
         run: npm ci
 
       - name: Lint
-        run: npm run lint
+        run: |
+          npm run lint:types
+          npm run lint:code
+          npm run lint:style
+          npm run lint:web-ext
 
       - name: Build
-        run: npm run build
+        run: npm run web-ext:build
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: CNL-decryptor-${{github.sha}}.zip
-          path: public/*
+          name: CNL-decryptor-${{github.sha}}
+          path: web-ext-artifacts/*.zip
           if-no-files-found: error
