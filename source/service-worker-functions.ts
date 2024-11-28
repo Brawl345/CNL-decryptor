@@ -31,7 +31,7 @@ export const addCryptedListener = async ({
 
   const { crypted, jk, passwords, urls } = requestBody.formData;
 
-  let links;
+  let links: string;
 
   if (urls) {
     // Plain CNL2
@@ -78,7 +78,9 @@ export const switchState = async () => {
   await chrome.storage.local.set({ enabled: !enabled });
 };
 
-export const setInitialSettings = ({ reason }: chrome.runtime.InstalledDetails) => {
+export const setInitialSettings = ({
+  reason,
+}: chrome.runtime.InstalledDetails) => {
   if (reason !== chrome.runtime.OnInstalledReason.INSTALL) {
     return;
   }
@@ -87,8 +89,8 @@ export const setInitialSettings = ({ reason }: chrome.runtime.InstalledDetails) 
 };
 
 export const setupAction = async () => {
-  let title;
-  let icons;
+  let title: string;
+  let icons: Record<number, string>;
   if (await isEnabled()) {
     title = i18n.enabled;
     icons = {

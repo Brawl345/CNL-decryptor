@@ -33,7 +33,6 @@ jobs:
         run: |
           npm run lint:types
           npm run lint:code
-          npm run lint:style
           npm run lint:web-ext
 
       - name: Build

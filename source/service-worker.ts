@@ -1,4 +1,9 @@
-import { addCryptedListener, setInitialSettings, setupAction, switchState } from './service-worker-functions.js';
+import {
+  addCryptedListener,
+  setInitialSettings,
+  setupAction,
+  switchState,
+} from './service-worker-functions.js';
 
 chrome.webRequest.onBeforeRequest.addListener(
   // @ts-expect-error - Chrome does support Promises...
