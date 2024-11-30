@@ -1,12 +1,11 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "files": {
-    "ignore": [
-      "public/build"
-    ]
+    "ignore": ["public/build"]
   },
   "formatter": {
-    "indentStyle": "space"
+    "indentStyle": "space",
+    "lineWidth": 120
   },
   "javascript": {
     "formatter": {

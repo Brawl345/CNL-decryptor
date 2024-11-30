@@ -1,10 +1,8 @@
-interface Options {
-  enabled: boolean;
-}
+import type { Options } from './types';
 
-const defaultOptions: Options = Object.freeze({
+export const defaults: Options = Object.freeze({
   enabled: true,
+  openMode: 'tab',
 });
 
-export const getOptions: () => Promise<Options> = async () =>
-  chrome.storage.local.get(defaultOptions) as Promise<Options>;
+export const getOptions: () => Promise<Options> = async () => chrome.storage.local.get(defaults) as Promise<Options>;

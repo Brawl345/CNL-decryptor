@@ -11,17 +11,14 @@ const i18n = {
   disabled: chrome.i18n.getMessage('browserAction_disabled'),
 };
 
-const isEnabled = async () => {
-  const { enabled } = await getOptions();
-  return enabled;
-};
-
 export const addCryptedListener = async ({
   url,
   requestBody,
 }: chrome.webRequest.WebRequestBodyDetails): Promise<chrome.webRequest.BlockingResponse> => {
+  const { enabled, openMode } = await getOptions();
+
   // Check port, because it's not allowed in RequestListener
-  if (!url.startsWith('http://127.0.0.1:9666/') || !(await isEnabled())) {
+  if (!url.startsWith('http://127.0.0.1:9666/') || !enabled) {
     return {};
   }
 
@@ -66,21 +63,31 @@ export const addCryptedListener = async ({
     popup_parameters += `&pw=${encodeURIComponent(passwords[0])}`;
   }
 
-  await chrome.tabs.create({
-    url: chrome.runtime.getURL(`popup/links-popup.html${popup_parameters}`),
-  });
+  if (openMode === 'popup') {
+    await chrome.windows.create({
+      url: chrome.runtime.getURL(`popup/links-popup.html${popup_parameters}`),
+      width: 800,
+      height: 600,
+      type: 'popup',
+    });
+  } else {
+    const currentTab = await chrome.tabs.query({ active: true, currentWindow: true });
+    console.log(currentTab);
+    await chrome.tabs.create({
+      openerTabId: currentTab.length > 0 ? currentTab[0].id : undefined,
+      url: chrome.runtime.getURL(`popup/links-popup.html${popup_parameters}`),
+    });
+  }
 
   return {};
 };
 
 export const switchState = async () => {
-  const enabled = await isEnabled();
+  const { enabled } = await getOptions();
   await chrome.storage.local.set({ enabled: !enabled });
 };
 
-export const setInitialSettings = ({
-  reason,
-}: chrome.runtime.InstalledDetails) => {
+export const setInitialSettings = ({ reason }: chrome.runtime.InstalledDetails) => {
   if (reason !== chrome.runtime.OnInstalledReason.INSTALL) {
     return;
   }
@@ -91,7 +98,8 @@ export const setInitialSettings = ({
 export const setupAction = async () => {
   let title: string;
   let icons: Record<number, string>;
-  if (await isEnabled()) {
+  const { enabled } = await getOptions();
+  if (enabled) {
     title = i18n.enabled;
     icons = {
       16: '/icons/16.png',

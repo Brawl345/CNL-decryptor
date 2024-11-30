@@ -1,9 +1,4 @@
-import {
-  addCryptedListener,
-  setInitialSettings,
-  setupAction,
-  switchState,
-} from './service-worker-functions.js';
+import { addCryptedListener, setInitialSettings, setupAction, switchState } from './service-worker-functions.js';
 
 chrome.webRequest.onBeforeRequest.addListener(
   // @ts-expect-error - Chrome does support Promises...
@@ -17,4 +12,9 @@ chrome.webRequest.onBeforeRequest.addListener(
 chrome.action.onClicked.addListener(switchState);
 chrome.runtime.onInstalled.addListener(setInitialSettings);
 chrome.runtime.onStartup.addListener(setupAction);
-chrome.storage.local.onChanged.addListener(setupAction);
+
+chrome.storage.local.onChanged.addListener(({ enabled }) => {
+  if (enabled && enabled.newValue !== enabled.oldValue) {
+    setupAction();
+  }
+});

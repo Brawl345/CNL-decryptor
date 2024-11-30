@@ -31,5 +31,30 @@
   },
   "popup_copied": {
     "message": "Kopiert!"
+  },
+  "options_title": {
+    "message": "CNL Decryptor Optionen",
+    "description": "Titel-Tag für die Optionsseite"
+  },
+  "options_openMode_label": {
+    "message": "Öffnen in:"
+  },
+  "options_openMode_value_tab": {
+    "message": "Tab"
+  },
+  "options_openMode_value_popup": {
+    "message": "Pop-up"
+  },
+  "options_save": {
+    "message": "Einstellungen speichern"
+  },
+  "options_save_success": {
+    "message": "Einstellungen gespeichert!"
+  },
+  "options_save_fail": {
+    "message": "Speichern fehlgeschlagen"
+  },
+  "options_noOptionsAvailable": {
+    "message": "Für diesen Browser sind keine Optionen verfügbar."
   }
 }

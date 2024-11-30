@@ -1,6 +1,6 @@
 {
   "name": "cnl-decryptor",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Click'N'Load Decryptor",
   "author": "Brawl345",
   "license": "Unlicense",
@@ -23,10 +23,7 @@
   "webExt": {
     "sourceDir": "./public/",
     "run": {
-      "startUrl": [
-        "about:debugging#/runtime/this-firefox",
-        "https://jdownloader.org/knowledge/wiki/glossary/cnl2"
-      ]
+      "startUrl": ["about:debugging#/runtime/this-firefox", "https://jdownloader.org/knowledge/wiki/glossary/cnl2"]
     }
   },
   "devDependencies": {

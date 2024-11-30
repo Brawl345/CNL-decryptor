@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>__options_title__</title>
+
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0 auto;
+          padding: 20px;
+      }
+
+      form {
+          display: grid;
+          gap: 15px;
+          margin-bottom: 15px;
+      }
+
+      label {
+          font-weight: bold;
+      }
+
+      input[type="text"], input[type="password"], input[type="url"], input[type="number"] {
+          width: 100%;
+          padding: 5px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+      }
+
+      label + input {
+          margin-top: 5px;
+      }
+
+      button {
+          padding: 10px;
+          background-color: #f0f0f0;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+
+      #save {
+          justify-self: end;
+      }
+
+      #message {
+          display: none;
+      }
+
+      .success {
+          color: green;
+      }
+
+      .error {
+          color: red;
+      }
+
+      .hidden {
+          display: none;
+      }
+
+      #no-options-available {
+          font-style: italic;
+      }
+  </style>
+
+</head>
+<body>
+<h1 id="title">__extensionName__</h1>
+<form class="hidden" id="options-form">
+  <div>
+    <label for="openMode">__options_openMode_label__</label>
+    <select id="openMode" name="openMode" required>
+      <option value="tab">__options_openMode_value_tab__</option>
+      <option value="popup">__options_openMode_value_popup__</option>
+    </select>
+  </div>
+
+  <button id="save" type="submit">__options_save__</button>
+
+  <span id="message">__MSG__</span>
+</form>
+
+<p class="hidden" id="no-options-available">__options_noOptionsAvailable__</p>
+
+<script type="module" src="../build/options.js"></script>
+</body>
+</html>

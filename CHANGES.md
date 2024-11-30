@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.3.0
+
+- Add option to open decrypted links in a popup again (only on desktop)
+- After closing the tab, the previous tab will be focused again
+
 ## v2.2.0
 
 - Switch to a tab instead of a popup with a new design

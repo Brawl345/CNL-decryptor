@@ -19,6 +19,7 @@ const ctx = await context({
   entryPoints: [
     path.resolve(__dirname, 'source', 'service-worker.ts'),
     path.resolve(__dirname, 'source', 'links-popup.ts'),
+    path.resolve(__dirname, 'source', 'options.ts'),
   ],
   bundle: true,
   minify: false,
