@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.3.1
+
+- Reverted the closing-tab fix from v2.3.0 since it can cause the tab not to be opened at all
+
 ## v2.3.0
 
 - Add option to open decrypted links in a popup again (only on desktop)

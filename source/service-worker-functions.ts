@@ -71,10 +71,7 @@ export const addCryptedListener = async ({
       type: 'popup',
     });
   } else {
-    const currentTab = await chrome.tabs.query({ active: true, currentWindow: true });
-    console.log(currentTab);
     await chrome.tabs.create({
-      openerTabId: currentTab.length > 0 ? currentTab[0].id : undefined,
       url: chrome.runtime.getURL(`popup/links-popup.html${popup_parameters}`),
     });
   }
